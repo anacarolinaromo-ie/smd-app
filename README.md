@@ -11,3 +11,4 @@ Personal finance ledger for the command line.
 ## Author
 
 <anacarolinaromo-ie>
+- Export monthly reports to PDF
