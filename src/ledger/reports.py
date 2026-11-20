@@ -21,17 +21,13 @@ def totals_by(
 
 def is_spending(t: Transaction) -> bool:
     """Money that left the accounts: negative, and not a transfer between them."""
-    if t.amount < 0 and t.category != TRANSFER:
-        return True
-    else:
-        return False
+    return bool(t.amount < 0 and t.category != TRANSFER)
 
 
 def balances(transactions: Iterable[Transaction]) -> dict[str, Decimal]:
     """The balance of each account, by account name, sorted by name."""
     totals = totals_by(transactions, key=lambda t: t.account)
     return dict(sorted(totals.items()))
-   
 
 
 def spending_by_category(transactions: Iterable[Transaction]) -> dict[str, Decimal]:
